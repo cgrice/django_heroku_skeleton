@@ -16,7 +16,7 @@ def get_env_variable(var_name):
         error_msg = "Set the %s env variable" % var_name 
         raise ImproperlyConfigured(error_msg)
 
-# Django settings for bestfeeding project.
+# Django settings for django_heroku_skeleton project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -113,18 +113,11 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'bestfeeding.urls'
+ROOT_URLCONF = 'django_heroku_skeleton.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'bestfeeding.wsgi.application'
+WSGI_APPLICATION = 'django_heroku_skeleton.wsgi.application'
 
-AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-AWS_QUERYSTRING_AUTH = False
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-STATIC_URL = S3_URL
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -135,11 +128,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'south',
-    'storages',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    'feeds',
-    'raven.contrib.django.raven_compat',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

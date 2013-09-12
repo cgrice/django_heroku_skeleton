@@ -23,7 +23,7 @@ echo "export DJANGO_DATABASE_URL='$db_string'" >> $venv_activate
 echo "export PYTHONPATH=$thisdir" >> $venv_activate
 
 mv django_heroku_skeleton $project_name
-sed -i 's/django_heroku_skeleton/$project_name/g' $project_name/settings.py
-sed -i 's/django_heroku_skeleton/$project_name/g' $project_name/urls.py
-sed -i 's/django_heroku_skeleton/$project_name/g' $project_name/wsgi.py
-sed -i 's/django_heroku_skeleton/$project_name/g' Procfile
+sed 's/django_heroku_skeleton/$project_name/g' $project_name/settings/common.py > $project_name/settings/common.py
+sed 's/django_heroku_skeleton/$project_name/g' $project_name/urls.py > $project_name/urls.py
+sed 's/django_heroku_skeleton/$project_name/g' $project_name/wsgi.py > $project_name/wsgi.py
+sed 's/django_heroku_skeleton/$project_name/g' Procfile > Procfile
